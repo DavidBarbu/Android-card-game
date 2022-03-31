@@ -11,12 +11,15 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+
 public class MainActivity extends AppCompatActivity {
 
 
     ImageView iv_card_left, iv_card_right;
     TextView tv_score_left, tv_score_right;
-    Button b_deal,b_reset;
+    Button b_deal,b_reset,b_war;
+    int leftCard=0,rightCard=0;
+    int leftCard1=0,rightCard1=0;
 
     Random r;
 
@@ -33,8 +36,10 @@ public class MainActivity extends AppCompatActivity {
         tv_score_right= findViewById(R.id.tv_score_right);
         b_deal= findViewById(R.id.b_deal);
         b_reset= findViewById(R.id.b_reset);
+        b_war= findViewById(R.id.b_war);
 
         r=new Random();
+
 
 
         b_reset.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 leftScore=0;
                 rightScore=0;
+                b_war.setVisibility(view.GONE);
+                b_war.setText("");
+                b_war.setEnabled(true);
 
                 tv_score_left.setText(String.valueOf(leftScore));
                 tv_score_right.setText(String.valueOf(rightScore));
@@ -50,14 +58,20 @@ public class MainActivity extends AppCompatActivity {
                 iv_card_left.setImageResource(leftImage);
                 int rightImage = getResources().getIdentifier("back", "drawable", getPackageName());
                 iv_card_right.setImageResource(rightImage);
+
+
+
             }
         });
 
         b_deal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int leftCard = r.nextInt(13)+2;
-                int rightCard = r.nextInt(13)+2;
+                b_war.setVisibility(view.GONE);
+                b_war.setText("");
+
+                leftCard = r.nextInt(13)+2;
+                rightCard = r.nextInt(13)+2;
 
                 int leftImage = getResources().getIdentifier("card"+leftCard, "drawable", getPackageName());
                 iv_card_left.setImageResource(leftImage);
@@ -71,10 +85,12 @@ public class MainActivity extends AppCompatActivity {
                     rightScore++;
 
                 }else{
-                    Toast.makeText(MainActivity.this, "WAR!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "WAR!", Toast.LENGTH_LONG).show();
+                    if(rightScore!=0&&leftScore!=0){b_war.setText("WAR");}
+                    b_war.setVisibility(view.VISIBLE);
+                    b_war.setEnabled(true);
+
                 }
-
-
 
                 tv_score_left.setText(String.valueOf(leftScore));
                 tv_score_right.setText(String.valueOf(rightScore));
@@ -82,5 +98,35 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        b_war.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                b_war.setEnabled(false);
+                b_war.setText("");
+                for( int i=0; i<rightCard; i++) {
+                    leftCard1 = r.nextInt(13) + 2;
+                    rightCard1 = r.nextInt(13) + 2;
+                    int leftImage = getResources().getIdentifier("card"+leftCard1, "drawable", getPackageName());
+                    iv_card_left.setImageResource(leftImage);
+
+                    int rightImage = getResources().getIdentifier("card"+rightCard1, "drawable", getPackageName());
+                    iv_card_right.setImageResource(rightImage);
+                    try {
+                        Thread.sleep(1000);
+                    } catch(InterruptedException e) {
+                        System.out.println("got interrupted!");
+                    }
+                }
+                //Toast.makeText(MainActivity.this, rightCard1, Toast.LENGTH_LONG).show();
+
+                rightScore=rightScore+rightCard;
+
+                tv_score_left.setText(String.valueOf(leftScore));
+                tv_score_right.setText(String.valueOf(rightScore));
+
+
+            }
+        });
+
     }
 }
