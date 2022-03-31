@@ -9,8 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
-
+import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
     int leftCard1=0,rightCard1=0;
 
     Random r;
-
+    int[] cards={102,103,104,105,106,107,108,109,110,112,113,114,115,202,203,204,205,206,207,208,209,210,212,213,214,215};
+    //List<Integer> list=new ArrayList<Integer>();
+    //list.add("cards");
     int leftScore=0, rightScore = 0;
 
     @Override
@@ -78,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
 
                 int rightImage = getResources().getIdentifier("card"+rightCard, "drawable", getPackageName());
                 iv_card_right.setImageResource(rightImage);
+                if(leftCard==11)
+                    leftCard=15;
+                if(rightCard==11)
+                    rightCard=15;
 
                 if(leftCard>rightCard){
                     leftScore++;
@@ -111,6 +118,11 @@ public class MainActivity extends AppCompatActivity {
 
                     int rightImage = getResources().getIdentifier("card"+rightCard1, "drawable", getPackageName());
                     iv_card_right.setImageResource(rightImage);
+                    if(leftCard1==11)
+                        leftCard1=15;
+                    if(rightCard1==11)
+                        rightCard1=15;
+
                     try {
                         Thread.sleep(1000);
                     } catch(InterruptedException e) {
