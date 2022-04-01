@@ -43,4 +43,17 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomNav"
+        android:layout_alignParentTop="true"
+        android:background="@color/black"
+        app:menu="@menu/menu"/>
+
+
 </RelativeLayout>
