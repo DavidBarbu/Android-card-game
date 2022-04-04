@@ -15,7 +15,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity2 extends AppCompatActivity {
     private Button menu_play;
     private Button menu_exit;
-    private Button b_exit;
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -57,7 +56,7 @@ public class MainActivity2 extends AppCompatActivity {
                     switch (menuItem.getItemId())
                     {
                         case R.id.game:
-                            fragment=new HomeFragment();
+                            fragment=new GameFragment();
                             break;
                         case R.id.search:
                             fragment=new SearchFragment();
