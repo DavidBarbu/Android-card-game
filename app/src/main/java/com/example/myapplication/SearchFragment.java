@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +61,16 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_search, container, false);
+        Intent intent = new Intent(getActivity(), SearchActivity.class);
+        final Button button = rootView.findViewById(R.id.search_button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {startActivity(intent);}
+            });
+
+
+        return rootView;
+
     }
 }

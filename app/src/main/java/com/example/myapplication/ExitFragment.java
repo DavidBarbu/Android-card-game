@@ -54,16 +54,6 @@ public class ExitFragment extends Fragment {
         return fragment;
     }
 
-    /*@Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        Button menu_exit = (Button) getView().findViewById(R.id.menu_exit);
-        menu_exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.exit(1);
-            }
-        });
-    }*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
