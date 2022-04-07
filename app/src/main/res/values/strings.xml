@@ -14,21 +14,113 @@
         <item>12</item>
         <item>13</item>
         <item>14</item>
+
+        <item>A</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+
+        <item>A</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+
+        <item>A</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+
+        <item>Spate</item>
     </string-array>
     <string-array name="card_descriptions">
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
-        <item>Descriere</item>
+
+        <item>A romb</item>
+        <item>2 romb</item>
+        <item>3 romb</item>
+        <item>4 romb</item>
+        <item>5 romb</item>
+        <item>6 romb</item>
+        <item>7 romb</item>
+        <item>8 romb</item>
+        <item>9 romb</item>
+        <item>10 romb</item>
+        <item>12 romb</item>
+        <item>13 romb</item>
+        <item>14 romb</item>
+
+        <item>A inima</item>
+        <item>2 inima</item>
+        <item>3 inima</item>
+        <item>4 inima</item>
+        <item>5 inima</item>
+        <item>6 inima</item>
+        <item>7 inima</item>
+        <item>8 inima</item>
+        <item>9 inima</item>
+        <item>10 inima</item>
+        <item>12 inima</item>
+        <item>13 inima</item>
+        <item>14 inima</item>
+
+        <item>A frunza</item>
+        <item>2 frunza</item>
+        <item>3 frunza</item>
+        <item>4 frunza</item>
+        <item>5 frunza</item>
+        <item>6 frunza</item>
+        <item>7 frunza</item>
+        <item>8 frunza</item>
+        <item>9 frunza</item>
+        <item>10 frunza</item>
+        <item>12 frunza</item>
+        <item>13 frunza</item>
+        <item>14 frunza</item>
+
+        <item>A trefla</item>
+        <item>2 trefla</item>
+        <item>3 trefla</item>
+        <item>4 trefla</item>
+        <item>5 trefla</item>
+        <item>6 trefla</item>
+        <item>7 trefla</item>
+        <item>8 trefla</item>
+        <item>9 trefla</item>
+        <item>10 trefla</item>
+        <item>12 trefla</item>
+        <item>13 trefla</item>
+        <item>14 trefla</item>
+
+        <item>Spatele cartilor</item>
+
+
+
     </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -22,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
     int leftCard=0,rightCard=0;
     int leftCard1=0,rightCard1=0;
 
-    Random r;
-    int[] cards={102,103,104,105,106,107,108,109,110,112,113,114,115,202,203,204,205,206,207,208,209,210,212,213,214,215};
+    Random r,rr,rrr,rrrr;
+    //int[] cards={102,103,104,105,106,107,108,109,110,112,113,114,115,202,203,204,205,206,207,208,209,210,212,213,214,215};
     //List<Integer> list=new ArrayList<Integer>();
     //list.add("cards");
-    int leftScore=0, rightScore = 0;
+    int leftScore=0, rightScore = 0, simbol1=0,simbol2=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
         r=new Random();
 
 
-
         b_reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 leftScore=0;
                 rightScore=0;
+
                 b_war.setVisibility(view.GONE);
                 b_war.setText("");
                 b_war.setEnabled(true);
@@ -75,12 +75,39 @@ public class MainActivity extends AppCompatActivity {
 
                 leftCard = r.nextInt(13)+2;
                 rightCard = r.nextInt(13)+2;
+                simbol1 = r.nextInt(4);
+                simbol2 = r.nextInt(4);
 
-                int leftImage = getResources().getIdentifier("card"+leftCard, "drawable", getPackageName());
-                iv_card_left.setImageResource(leftImage);
+                if(simbol1==0) {
+                    int leftImage = getResources().getIdentifier("romb" + leftCard, "drawable", getPackageName());
+                    iv_card_left.setImageResource(leftImage);
+                }else if(simbol1==1){
+                    int leftImage = getResources().getIdentifier("inima" + leftCard, "drawable", getPackageName());
+                    iv_card_left.setImageResource(leftImage);
+                }else if(simbol1==2){
+                    int leftImage = getResources().getIdentifier("frunza" + leftCard, "drawable", getPackageName());
+                    iv_card_left.setImageResource(leftImage);
+                }else if(simbol1==3){
+                    int leftImage = getResources().getIdentifier("trefla" + leftCard, "drawable", getPackageName());
+                    iv_card_left.setImageResource(leftImage);
+                }
 
-                int rightImage = getResources().getIdentifier("card"+rightCard, "drawable", getPackageName());
-                iv_card_right.setImageResource(rightImage);
+                if(simbol2==0) {
+                    int leftImage = getResources().getIdentifier("romb" + rightCard, "drawable", getPackageName());
+                    iv_card_right.setImageResource(leftImage);
+                }else if(simbol2==1){
+                    int leftImage = getResources().getIdentifier("inima" + rightCard, "drawable", getPackageName());
+                    iv_card_right.setImageResource(leftImage);
+                }else if(simbol2==2){
+                    int leftImage = getResources().getIdentifier("frunza" + rightCard, "drawable", getPackageName());
+                    iv_card_right.setImageResource(leftImage);
+                }else if(simbol2==3){
+                    int leftImage = getResources().getIdentifier("trefla" + rightCard, "drawable", getPackageName());
+                    iv_card_right.setImageResource(leftImage);
+                }
+
+
+
                 if(leftCard==11)
                     leftCard=15;
                 if(rightCard==11)
@@ -91,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
                 }else if(leftCard<rightCard){
                     rightScore++;
 
-                }else{
-                    Toast.makeText(MainActivity.this, "WAR!", Toast.LENGTH_LONG).show();
+                }else if(leftCard==rightCard){
+                    Toast.makeText(MainActivity.this, "WAR!", Toast.LENGTH_SHORT).show();
                     if(rightScore!=0&&leftScore!=0){b_war.setText("WAR");}
                     b_war.setVisibility(view.VISIBLE);
                     b_war.setEnabled(true);
@@ -113,11 +140,40 @@ public class MainActivity extends AppCompatActivity {
                 for( int i=0; i<rightCard; i++) {
                     leftCard1 = r.nextInt(13) + 2;
                     rightCard1 = r.nextInt(13) + 2;
-                    int leftImage = getResources().getIdentifier("card"+leftCard1, "drawable", getPackageName());
-                    iv_card_left.setImageResource(leftImage);
 
-                    int rightImage = getResources().getIdentifier("card"+rightCard1, "drawable", getPackageName());
-                    iv_card_right.setImageResource(rightImage);
+                    simbol1 = r.nextInt(4);
+                    simbol2 = r.nextInt(4);
+
+                    if(simbol1==0) {
+                        int leftImage = getResources().getIdentifier("romb" + leftCard1, "drawable", getPackageName());
+                        iv_card_left.setImageResource(leftImage);
+                    }else if(simbol1==1){
+                        int leftImage = getResources().getIdentifier("inima" + leftCard1, "drawable", getPackageName());
+                        iv_card_left.setImageResource(leftImage);
+                    }else if(simbol1==2){
+                        int leftImage = getResources().getIdentifier("frunza" + leftCard1, "drawable", getPackageName());
+                        iv_card_left.setImageResource(leftImage);
+                    }else if(simbol1==3){
+                        int leftImage = getResources().getIdentifier("trefla" + leftCard1, "drawable", getPackageName());
+                        iv_card_left.setImageResource(leftImage);
+                    }
+
+                    if(simbol2==0) {
+                        int leftImage = getResources().getIdentifier("romb" + rightCard1, "drawable", getPackageName());
+                        iv_card_right.setImageResource(leftImage);
+                    }else if(simbol2==1){
+                        int leftImage = getResources().getIdentifier("inima" + rightCard1, "drawable", getPackageName());
+                        iv_card_right.setImageResource(leftImage);
+                    }else if(simbol2==2){
+                        int leftImage = getResources().getIdentifier("frunza" + rightCard1, "drawable", getPackageName());
+                        iv_card_right.setImageResource(leftImage);
+                    }else if(simbol2==3){
+                        int leftImage = getResources().getIdentifier("trefla" + rightCard1, "drawable", getPackageName());
+                        iv_card_right.setImageResource(leftImage);
+                    }
+
+
+
                     if(leftCard1==11)
                         leftCard1=15;
                     if(rightCard1==11)
@@ -131,7 +187,18 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //Toast.makeText(MainActivity.this, rightCard1, Toast.LENGTH_LONG).show();
 
-                rightScore=rightScore+rightCard;
+                if(leftCard1>rightCard1){
+                    leftScore+=rightCard;
+                }else if(leftCard1<rightCard1){
+                    rightScore+=rightCard;
+
+                }else if(leftCard1==rightCard1){
+                    Toast.makeText(MainActivity.this, "WAR!", Toast.LENGTH_SHORT).show();
+                    if(rightScore!=0&&leftScore!=0){b_war.setText("WAR");}
+                    b_war.setVisibility(view.VISIBLE);
+                    b_war.setEnabled(true);
+
+                }
 
                 tv_score_left.setText(String.valueOf(leftScore));
                 tv_score_right.setText(String.valueOf(rightScore));
