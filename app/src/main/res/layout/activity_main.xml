@@ -63,6 +63,15 @@
                 android:textColor="#FFFFFF"
                 android:textSize="40sp" />
             <Button
+                android:id="@+id/b_share"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SHARE SCORE"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp"
+                />
+            <Button
                 android:id="@+id/b_war"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
@@ -73,6 +82,7 @@
                 android:visibility="gone"
 
                 />
+
         </LinearLayout>
     </LinearLayout>
 

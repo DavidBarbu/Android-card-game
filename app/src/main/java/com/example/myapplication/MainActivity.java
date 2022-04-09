@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView iv_card_left, iv_card_right;
     TextView tv_score_left, tv_score_right;
-    Button b_deal,b_reset,b_war;
+    Button b_deal,b_reset,b_war,b_share;
     int leftCard=0,rightCard=0;
     int leftCard1=0,rightCard1=0;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         b_deal= findViewById(R.id.b_deal);
         b_reset= findViewById(R.id.b_reset);
         b_war= findViewById(R.id.b_war);
+        b_share= findViewById(R.id.b_share);
 
         r=new Random();
 
@@ -47,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         b_reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
+
+
                 leftScore=0;
                 rightScore=0;
 
@@ -202,6 +209,23 @@ public class MainActivity extends AppCompatActivity {
 
                 tv_score_left.setText(String.valueOf(leftScore));
                 tv_score_right.setText(String.valueOf(rightScore));
+
+
+            }
+        });
+        b_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                //Metoda de Share
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Scorul este "+ leftScore+" - "+rightScore);
+                sendIntent.setType("text/plain");
+
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
 
 
             }
