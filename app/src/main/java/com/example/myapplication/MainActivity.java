@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+
 import java.util.Random;
-import java.util.Vector;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     int leftCard=0,rightCard=0;
     int leftCard1=0,rightCard1=0;
 
-    Random r,rr,rrr,rrrr;
+    Random r;
     //int[] cards={102,103,104,105,106,107,108,109,110,112,113,114,115,202,203,204,205,206,207,208,209,210,212,213,214,215};
     //List<Integer> list=new ArrayList<Integer>();
     //list.add("cards");

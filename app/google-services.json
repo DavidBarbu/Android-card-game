@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "124355956368",
+    "project_id": "card-game-android",
+    "storage_bucket": "card-game-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124355956368:android:80716b6b0f52b503d69215",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124355956368-n65ve88ilsn5r9udjlrphehbdf6bv18t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "d50499fb5462af905d39bfacaa28b77bcc745fc6"
+          }
+        },
+        {
+          "client_id": "124355956368-5fpit91rs8gscegg6ppdnc6eq5k7f3gn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3OJIy-46oR5d73sWnxDcam8zn1aIOL4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124355956368-5fpit91rs8gscegg6ppdnc6eq5k7f3gn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
