@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,11 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    ImageView imageView;
+    Button button;
+    ObjectAnimator scale,rotation,scaleDownX, scaleDownY;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +67,23 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        //ObjectAnimator animation
+        imageView=rootView.findViewById(R.id.card_animation);
+        rotation=ObjectAnimator.ofFloat(imageView,"rotation",0f,1440f);
+        scaleDownX = ObjectAnimator.ofFloat(imageView, "scaleX", 10f);
+        scaleDownY = ObjectAnimator.ofFloat(imageView, "scaleY", 10f);
+
+        imageView.setVisibility(View.VISIBLE);
+        rotation.setDuration(1500);
+        scaleDownX.setDuration(1500);
+        scaleDownY.setDuration(1500);
+        AnimatorSet scaleDown = new AnimatorSet();
+        scaleDown.play(scaleDownX).with(scaleDownY).with(rotation);
+        scaleDown.start();
+
+        return rootView;
+
     }
 }
