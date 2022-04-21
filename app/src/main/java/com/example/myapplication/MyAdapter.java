@@ -4,24 +4,41 @@ import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import java.util.Collection;
+import java.util.Collections;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
-    String data1[], data2[];
+
+
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable {
+
+
+    List<String> data1= new ArrayList<>();
+    List<String> data2= new ArrayList<>();
+
+    List<String> exampleListFull= new ArrayList<>();
     int images[];
     Context context;
 
-    public MyAdapter(Context ct, String s1[], String s2[], int img[]){
+    int images1[];
+    public MyAdapter(Context ct, List<String> s1, List<String> s2, int img[]){
         context=ct;
-        data1=s1;
-        data2=s2;
+        data1.addAll(s1);
+        data2.addAll(s2);
         images=img;
+        exampleListFull.addAll(data2);
+
     }
 
     @NonNull
@@ -35,17 +52,47 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.myText1.setText(data1[position]);
-        holder.myText2.setText(data2[position]);
+        holder.myText1.setText(data1.get(position));
+        holder.myText2.setText(data2.get(position));
         holder.myImage.setImageResource(images[position]);
 
     }
 
     @Override
     public int getItemCount() {
-        return images.length;
+        return data2.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return exampleFilter;
+    }
+    private Filter exampleFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<String> filteredList = new ArrayList<>();
+            String charString = constraint.toString();
+            if (charString.isEmpty() || charString.length() == 0) {
+                filteredList.addAll(exampleListFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (String item : exampleListFull) {
+                    if (item.toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            data2.clear();
+            data2.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView myImage;
@@ -62,7 +109,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
         @Override
         public void onClick(View view){
-            Toast.makeText(view.getContext(),data2[getAdapterPosition()], Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(),data2.get(getAdapterPosition()), Toast.LENGTH_SHORT).show();
         }
     }
 

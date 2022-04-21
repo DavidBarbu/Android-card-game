@@ -11,9 +11,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import java.util.ArrayList;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.recyclerview.widget.DividerItemDecoration;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -22,7 +27,8 @@ public class SearchActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     MyAdapter myAdapter;
-    String[] s1,s2;
+    List<String> s1= new ArrayList<>();
+    List<String> s2= new ArrayList<>();
     int[] images ={
             R.drawable.romb11, R.drawable.romb2, R.drawable.romb3, R.drawable.romb4, R.drawable.romb5,
             R.drawable.romb6, R.drawable.romb7, R.drawable.romb8, R.drawable.romb9, R.drawable.romb10,
@@ -43,7 +49,7 @@ public class SearchActivity extends AppCompatActivity {
             R.drawable.back
     };
 
-    ArrayAdapter<String> arrayAdapter;
+    //ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +59,10 @@ public class SearchActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        s1 = getResources().getStringArray(R.array.cards);
-        s2 = getResources().getStringArray(R.array.card_descriptions);
+        s1 = Arrays.asList(getResources().getStringArray(R.array.cards));
+        s2 = Arrays.asList(getResources().getStringArray(R.array.card_descriptions));
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,s1);
+        //arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,s1);
 
         MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
         recyclerView.setAdapter(myAdapter);
@@ -73,12 +79,13 @@ public class SearchActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
+                myAdapter.getFilter().filter(newText);
                 return false;
             }
         });
