@@ -85,7 +85,11 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                myAdapter.getFilter().filter(newText);
+                try {
+                    myAdapter.getFilter().filter(newText);
+                }catch(Exception e) {
+                    System.out.println("got interrupted!");
+                }
                 return false;
             }
         });
