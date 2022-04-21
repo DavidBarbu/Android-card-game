@@ -1,10 +1,11 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import android.view.inputmethod.EditorInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -19,7 +21,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
-
+    MyAdapter myAdapter;
     String[] s1,s2;
     int[] images ={
             R.drawable.romb11, R.drawable.romb2, R.drawable.romb3, R.drawable.romb4, R.drawable.romb5,
@@ -48,6 +50,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+
         recyclerView = findViewById(R.id.recyclerView);
 
         s1 = getResources().getStringArray(R.array.cards);
@@ -58,17 +61,15 @@ public class SearchActivity extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(this,s1,s2,images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
     }
-
     @Override
-    public boolean onCreateOptionsMenu (Menu menu){
-        getMenuInflater().inflate(R.menu.menu_search,menu);
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
 
-
+        getMenuInflater().inflate(R.menu.menu_search, menu);
         MenuItem menuItem = menu.findItem(R.id.search_icon_filter);
         SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setQueryHint("Search Data here .. ");
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -77,11 +78,12 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                arrayAdapter.getFilter().filter(newText);
 
                 return false;
             }
         });
+
+
         return super.onCreateOptionsMenu(menu);
     }
 }
