@@ -19,4 +19,3 @@ public class CardsClass {
         return text2;
     }
 }
-}
