@@ -10,12 +10,12 @@
     <item
         android:id="@+id/search"
         android:title="Search"
+
         android:icon="@drawable/ic_search"/>
     <item
 
         android:id="@+id/game"
         android:icon="@drawable/ic_game"
-
         android:title="Game" />
     <item
         android:id="@+id/info"
