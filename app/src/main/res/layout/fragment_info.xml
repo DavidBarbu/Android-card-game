@@ -38,10 +38,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_txt">
+        app:layout_constraintTop_toBottomOf="@+id/title_txt"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,7 +53,7 @@
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="@string/instructiuni"
                 android:textColor="@color/white" />
         </LinearLayout>
