@@ -121,5 +121,28 @@
 
 
     </string-array>
+    <string name="instructiuni">Jocul de Razboi este un joc de carti cat se poate de simplu, probabil toata lumea a jucat macar o data in viata Razboi.
+
+Numarul de jucatori
+Minim jucatori: 2
+Maxim jucatori: oricat de multi, astfel incat fiecare jucator sa aiba un numar “decent” de carti in mana (sa nu aiba prea putine carti).
+
+Cartile la Razboi
+Se impart cartile in mod egal la fiecare jucator. Daca nu se pot imparti in mod egal atunci se scot din joc incepand cu cele mai mici(2, 3 etc) atatea carti cat este nevoie. AS-ul este cea mai mare carte la Razboi, urmat de K, D, J etc.
+
+Cine castiga?
+Castigatorul este acela care acumuleaza toate cartile din joc (ceilalti nu mai au nici o carte in mana).
+
+Regulile de joc la Razboi
+Dupa ce au fost impartite cartile in mod egal este ales un prim jucator. Cartile se tin sub forma de teanc, fara sa li se vada fata.
+
+Primul jucator da o carte pe masa cu fata in sus. Ceilalti jucatori, in ordine, vor da cate o carte din teancul propriu. Runda este castigata de cel care are cartea cea mai mare. In cazul in care doi sau mai multi jucatori au aceleasi carti(de exemplu 10 – 10, 4 – 4 – 4 etc), se da “razboi”, adica fiecare jucator implicat va pune peste cartea de razboi, in ordine din teancul propriu, atatea carti cate indica cartea de razboi (de exemplu fiecare pune cate 10 carti, cate 4 carti etc). Castiga cel care are cartea cea mai mare si astfel ia toate cartile din “razboi”.
+
+Daca se intalnesc iarasi carti de acelasi fel, procedeul se reia. Daca se face razboi la as, atunci fiecare jucator va pune cate 11 carti.
+
+Dupa terminarea unei runde, castigatorul ia cartile de pe masa si le pune la sfarsitul teancului propriu.
+
+Tactici de joc la Razboi
+Asii sunt foarte importanti pentru ca reprezinta cea mai mare carte. Norocosii care primesc mai multi asi dupa impartirea cartilor, sunt privilegiati, insa prin “razboiul” propriu-zis, dupa ce doi sau mai multi jucatori au dat aceeasi carte, asii se pot transfera la alt jucator si sansele se duc la acesta. Totusi, razboiul nu este un joc de strategie, ci tine pur si simplu de noroc.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
