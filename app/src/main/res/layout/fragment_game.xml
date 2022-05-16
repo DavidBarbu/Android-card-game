@@ -8,11 +8,20 @@
 
 
     <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/card_animation"
+        android:layout_width="16dp"
+        android:layout_height="24dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:src="@drawable/back" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:minHeight="200dp"
         android:layout_centerHorizontal="true"
         >
     <Button
@@ -21,14 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Play"
-        android:textSize="44dp"
-        />
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Log In"
         android:textSize="44dp"
         />
     </LinearLayout>

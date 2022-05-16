@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +24,9 @@ public class SearchFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    ImageView imageView;
+    Button button;
+    ObjectAnimator scale,rotation,scaleDownX, scaleDownY;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -70,7 +76,22 @@ public class SearchFragment extends Fragment {
             });
 
 
+        //ObjectAnimator animation
+        imageView=rootView.findViewById(R.id.card_animation);
+        rotation= ObjectAnimator.ofFloat(imageView,"rotation",0f,1440f);
+        scaleDownX = ObjectAnimator.ofFloat(imageView, "scaleX", 10f);
+        scaleDownY = ObjectAnimator.ofFloat(imageView, "scaleY", 10f);
+
+        imageView.setVisibility(View.VISIBLE);
+        rotation.setDuration(1500);
+        scaleDownX.setDuration(1500);
+        scaleDownY.setDuration(1500);
+        AnimatorSet scaleDown = new AnimatorSet();
+        scaleDown.play(scaleDownX).with(scaleDownY).with(rotation);
+        scaleDown.start();
+
         return rootView;
 
     }
+
 }
